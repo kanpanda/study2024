@@ -1,47 +1,33 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+<!-- jsを書く -->
+<script>
+// const userName = 'aiueo'
+let price = 9.9
+
+export default {
+  data() {
+    return {
+      userName: 'どうもども'
+    };
+  }
+};
+
+function increment() {
+    console.log('aaa')
+}
+
 </script>
 
+
+<!-- htmlを書く -->
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did !" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <h1>Title: {{ userName }}</h1>
+    <button @click="increment">button</button>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<!-- CSSを書く なくてもよい -->
+<style>
+h1{
+    color: red;
 }
 </style>

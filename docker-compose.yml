@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: "bookapp"
+      POSTGRES_PASSWORD: "bookapp"
+      POSTGRES_DB: bookapp
+    restart: always
+    ports: 
+      - "5433:5432"
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d

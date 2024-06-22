@@ -6,27 +6,23 @@ import jakarta.persistence.Id;
 @Entity
 public class Book { 
 	@Id
-    private String bookId;
     private String author;
-    // private String title;
-    // private String publisher;
+    private String title;
+	// private String publishedDate;
+	// private String genre;
+	// private String publicationType;
 
-    public String getBookId() {
-		return bookId;
-	}
-
-	public void setBookId(String bookId) {
-		this.bookId = bookId;
-	}
-
-	public String getAuthor() {
+	// getterとsetterの設定
+    public String getAuthor() {
 		return author;
 	}
-
-	public void setAuthor(String author) {
+	public void setAuthor(String Author) {
 		this.author = author;
 	}
-
-
-    
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 }

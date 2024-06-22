@@ -1,4 +1,4 @@
-# 研修キャッチアップのためにアプリ開発を行う
+# 簡単な書籍管理アプリ開発を作ってみよう
 
 
 # frontend
@@ -20,13 +20,12 @@
 npm run dev
 ```
 
-
 # backend
 springbootを使用してbackendを開発する
 
 # docker
 dockerでpostgresqlにつなぐときにエラーが発生した
-## 原因
+### 原因
 dockerとは別に、ローカルにpgAdmin4を入れていたため、競合？していた
 1. docker-compose.ymlの設定を以下にする。
     ports: 
@@ -34,10 +33,10 @@ dockerとは別に、ローカルにpgAdmin4を入れていたため、競合？
 2. A5sqlの「データベースの追加と削除」→portsを5432にしてテスト接続
 3. docker起動
 
-##  docker起動
+###  dockerの起動方法
 dockerを利用してdbの環境を構築した。
-
-
+- docker desktopを起動
+- 以下のコマンドを入力
 ```
 dockerデスクトップの起動
 // GUIで
@@ -45,15 +44,17 @@ dockerデスクトップの起動
 docker-comopse up -d
 ```
 
-##  docker停止
+###  docker停止
 ```
 docker-compose down
 ```
 
 # 起動の手順
-- dockerの起動
-- spring bootを起動
-- vueを起動
+1. dockerの起動
+2. spring bootを起動
+- BookappApplication.javaのrunを押す
+3. vueを起動
+- study2024/frontdend でnpm run devをする
 
 # やりたいこと
 - 書籍情報の一覧をフロントで表示
@@ -62,3 +63,29 @@ docker-compose down
 
 # postgresql
 ##　
+
+
+# <script setup>
+  <script setup>はVue 3.2以降で利用可能な構文です。簡潔に書けるため、推奨されることが多いです。この構文では、setupオプションの内容をそのまま書くことができます。
+
+# コードサンプル
+
+<script setup>
+import {ref} from 'vue'
+const userInput =ref('')
+const count =ref(0)
+const increment = () =>{
+    count.value++
+}
+const decrement = () =>{
+    count.value--    
+}
+</script>
+
+<template>
+        <p>{{ userInput }}</p>
+        <input v-model="userInput" type="text" />
+        <p>{{ count }}</p>
+        <button @click="increment">Increment</button>
+        <button @click="decrement">Decrement</button>
+</template>

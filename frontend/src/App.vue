@@ -1,33 +1,39 @@
-
-<!-- jsを書く -->
-<script>
-// const userName = 'aiueo'
-let price = 9.9
-
-export default {
-  data() {
-    return {
-      userName: 'どうもども'
-    };
-  }
-};
-
-function increment() {
-    console.log('aaa')
-}
-
-</script>
-
-
-<!-- htmlを書く -->
 <template>
-    <h1>Title: {{ userName }}</h1>
-    <button @click="increment">button</button>
-</template>
-
-<!-- CSSを書く なくてもよい -->
-<style>
-h1{
-    color: red;
-}
-</style>
+    <div>
+      <form @submit.prevent="submitForm">
+        <label for="name">Name:</label>
+        <input type="text" v-model="name" id="name" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </template>
+  
+  
+  <script>
+  import axios from 'axios'
+  
+  export default {
+    data() {
+      return {
+        name: ''
+      }
+    },
+    methods: {
+      async submitForm() {
+        try {
+          const response = await axios.post('http://localhost:8080/api/submit', {
+            name: this.name
+          })
+          console.log('Response:', response.data)
+        } catch (error) {
+          console.error('Error submitting form:', error)
+        }
+      }
+    }
+  }
+  </script>
+  
+  <style scoped>
+  /* スタイルを追加する場合はここに記述 */
+  </style>
+  

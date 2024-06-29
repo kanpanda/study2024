@@ -41,7 +41,7 @@ dockerを利用してdbの環境を構築した。
 dockerデスクトップの起動
 // GUIで
 
-docker-comopse up -d
+docker-compose up -d
 ```
 
 ###  docker停止
@@ -63,29 +63,3 @@ docker-compose down
 
 # postgresql
 ##　
-
-
-# <script setup>
-  <script setup>はVue 3.2以降で利用可能な構文です。簡潔に書けるため、推奨されることが多いです。この構文では、setupオプションの内容をそのまま書くことができます。
-
-# コードサンプル
-
-<script setup>
-import {ref} from 'vue'
-const userInput =ref('')
-const count =ref(0)
-const increment = () =>{
-    count.value++
-}
-const decrement = () =>{
-    count.value--    
-}
-</script>
-
-<template>
-        <p>{{ userInput }}</p>
-        <input v-model="userInput" type="text" />
-        <p>{{ count }}</p>
-        <button @click="increment">Increment</button>
-        <button @click="decrement">Decrement</button>
-</template>

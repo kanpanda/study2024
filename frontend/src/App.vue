@@ -29,6 +29,7 @@ export default {
     };
   },
   methods: {
+    // バックエンドにpostリクエストを送ると、バックエンドがデータを受け取る
     async handleSubmit() {
       const{ author, title} = this.formData;
       
@@ -45,7 +46,23 @@ export default {
         console.error('Error submitting data:', error);
         alert('警告:An error occurred while submitting the form. Please try again.');
       };
+    },
+    // バックエンドにgetリクエストを送ると、バックエンドが書籍一覧を返す
+    // getリクエストは何度送っても同じ処理を返す（冪等性がある）
+    async fetchBooks(){
+      try{
+        const response = await axios.get('http://localhost:8080/api/books');
+        this.books = response.data;
+        console.log('Books' , this.books);
+      }catch (error){
+        console.error('Error fetching books:', error);
+        alert('警告!: 書籍の取得中にエラーが発生しました。もう一度試してください。');
+      }
     }
-  }
+  },
+  // mounted(){
+  //   // コンポーネントがマウントされたときに初期の書籍一覧を取得する
+  //   this.fetchBooks();
+  //  }
 };
 </script>
